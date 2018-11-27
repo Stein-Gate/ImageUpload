@@ -23,7 +23,7 @@ public class ImageController {
 
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
-    public Result HelloWorld(){
+    public Result helloWorld(){
         return ResultUtil.success("Hello World");
     }
 
@@ -73,4 +73,8 @@ public class ImageController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    /**
+     * 显示所有的图片
+     */
 }
