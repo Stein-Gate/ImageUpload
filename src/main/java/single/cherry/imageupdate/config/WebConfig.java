@@ -14,7 +14,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //添加图片地址的映射
         registry.addResourceHandler("/images/**").addResourceLocations("file:D:/Image/picture/");
+        //添加视频地址的映射
+        registry.addResourceHandler("/vedios/**").addResourceLocations("file:D:/Vedio/");
 //        super.addResourceHandlers(registry);
     }
 

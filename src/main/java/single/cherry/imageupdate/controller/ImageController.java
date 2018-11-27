@@ -3,10 +3,7 @@ package single.cherry.imageupdate.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import single.cherry.imageupdate.util.Result;
 import single.cherry.imageupdate.util.ResultUtil;
@@ -24,12 +21,21 @@ public class ImageController {
         this.resourceLoader = resourceLoader;
     }
 
-    @RequestMapping("/hello")
-    public String HelloWorld(){
-        return "Hello World";
+
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    public Result HelloWorld(){
+        return ResultUtil.success("Hello World");
     }
 
+    /**
+     * 上传数据
+     * @param file
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/upload")
+    @ResponseBody
     public Result upload(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) throws Exception{
         if (file.isEmpty()){
             System.out.println("上传文件为空");
