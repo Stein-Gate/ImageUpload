@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/Spring
+    username: spring
+    password: pJR6JFi7dwKyGDsZ
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  mvc:
+#      static-path-pattern: /image/**
+#  resources:
+#    static-locations:  file:D://image/
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  thymeleaf:
+    prefix: classpath:/template/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+server:
+  port: 8081
